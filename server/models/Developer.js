@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const developerSchema = new Schema({
-  name: String,
-  link: String,
+	name: String,
+	link: String,
 });
 
 module.exports = mongoose.model('Developer', developerSchema);

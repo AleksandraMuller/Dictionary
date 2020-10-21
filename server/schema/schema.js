@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, { filter } from 'lodash';
 import {
 	GraphQLObjectType,
 	GraphQLString,
@@ -15,8 +15,8 @@ const WordType = new GraphQLObjectType({
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
-		description: { type: GraphQLString },
 		link: { type: GraphQLString },
+		description: { type: GraphQLString },
 		developer: {
 			type: DeveloperType,
 			resolve(parent, args) {
@@ -67,8 +67,9 @@ const RootQuery = new GraphQLObjectType({
 		},
 		words: {
 			type: new GraphQLList(WordType),
-			resolve(parent, args) {
+			resolve(parent, args, { filter }) {
 				// return words;
+
 				return Word.find({});
 			},
 		},
@@ -77,6 +78,27 @@ const RootQuery = new GraphQLObjectType({
 			resolve(parent, args) {
 				// return developers;
 				return Developer.find({});
+			},
+		},
+		filterWords: {
+			type: new GraphQLList(WordType),
+			args: { filter: { type: GraphQLString } },
+			resolve(parent, args) {
+				const word = Word.find({});
+
+				const filtered = word.map((e) => {
+					const newArr = [];
+					Object.values(e).filter((item) => {
+						if (item.name.toLowerCase().includes(args.filter.toLowerCase())) {
+							newArr.push(item);
+							return newArr;
+						}
+						return e;
+					});
+
+					return newArr;
+				});
+				return filtered;
 			},
 		},
 	},

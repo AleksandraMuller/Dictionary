@@ -10,6 +10,16 @@ export const getWordsQuery = gql`
 	}
 `;
 
+export const getFilteredWordsQuery = gql`
+	query($filter: String) {
+		filterWords(filter: $filter) {
+			id
+			name
+			description
+		}
+	}
+`;
+
 export const getDevelopersQuery = gql`
 	{
 		developers {

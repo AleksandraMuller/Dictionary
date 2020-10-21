@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 import WordList from './components/WordList';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { addWords } from './redux/word/word.action';
 import AddWord from './components/AddWord';
+import MainPage from './pages/MainPage';
+import ShowAllResultsPage from './pages/ShowAllResultsPage';
+import AddTermPage from './pages/AddTermPage';
 
 //apollo client setup
 
@@ -16,23 +17,13 @@ const client = new ApolloClient({
 });
 
 const App = () => {
-	const [wordName, setWordName] = useState('');
-	const [wordDescription, setWordDescription] = useState('');
-	const [wordLink, setWordLink] = useState('');
-
-	const dispatch = useDispatch();
-
-	const handleAddWord = () => {
-		dispatch(
-			addWords({ name: wordName, description: wordDescription, link: wordLink })
-		);
-	};
-
 	return (
 		<ApolloProvider client={client}>
 			<div className='App'>
+				<MainPage />
+				<ShowAllResultsPage />
+				<AddTermPage />
 				<AddWord />
-				{/* <button onClick={handleAddWord}>Add new word</button> */}
 				<WordList />
 			</div>
 		</ApolloProvider>

@@ -5,9 +5,94 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	width: 100%;
+	height: 100%;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	height: 100%;
+	width: 100%;
+	background-color: black;
+}
+
+.box {
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+	z-index: 3000;
+	overflow: hidden;
+	transition: height 500ms 0ms, opacity 500ms 500ms;
+}
+
+.box_hide {
+	transition: height 500ms 500ms, opacity 500ms 0ms;
+	opacity: 0;
+	height: 0px;
+}
+
+.helllo {
+	/* position: absolute; */
+	white-space: nowrap;
+	color: white;
+	animation: moveOver 5s alternate ease-in-out;
+}
+
+@-webkit-keyframes floatText {
+	/* from {
+		left: 00%;
+	}
+
+	to {
+		/* left: auto; */
+	/* left: 100%; */
+	/* }  */
+	0% {
+		left: 00%;
+	}
+	25% {
+		left: 25%;
+	}
+	50% {
+		left: 50%;
+	}
+	75% {
+		left: 75%;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@keyframes moveOver {
+	from {
+		transform: translate3d(1000px, 0, 0);
+	}
+
+	/* 20% {
+		transform: translate3d(1000px, 0, 0);
+	}
+
+	50% {
+		transform: translate3d(800px, 0, 0);
+	}
+
+	80% {
+		transform: translate3d(600px, 0, 0);
+	} */
+
+	/* to {
+		transform: translate3d(300px, 0, 0);
+	} */
 }

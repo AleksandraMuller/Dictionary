@@ -3,10 +3,10 @@ import './App.css';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
-import WordList from './components/WordList';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import AddWord from './components/AddWord';
-import MainPage from './pages/MainPage';
+import SearchPage from './pages/SearchPage';
+import StartPage from './pages/StartPage';
 import ShowAllResultsPage from './pages/ShowAllResultsPage';
 import AddTermPage from './pages/AddTermPage';
 
@@ -19,13 +19,15 @@ const client = new ApolloClient({
 const App = () => {
 	return (
 		<ApolloProvider client={client}>
-			<div className='App'>
-				<MainPage />
-				<ShowAllResultsPage />
-				<AddTermPage />
-				<AddWord />
-				<WordList />
-			</div>
+			<BrowserRouter>
+				<Switch>
+					{' '}
+					<Route path='/' exact component={StartPage} />
+					<Route path='/search' exact component={SearchPage} />
+					<Route path='/allResults' exact component={ShowAllResultsPage} />
+					<Route path='/add' exact component={AddTermPage} />
+				</Switch>
+			</BrowserRouter>
 		</ApolloProvider>
 	);
 };

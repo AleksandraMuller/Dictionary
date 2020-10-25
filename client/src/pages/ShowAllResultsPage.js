@@ -1,7 +1,12 @@
 import React from 'react';
+import WordList from '../components/WordList';
 
 const ShowAllResultsPage = () => {
-	return <div>SHow All Results</div>;
+	return (
+		<div>
+			<WordList />
+		</div>
+	);
 };
 
 export default ShowAllResultsPage;

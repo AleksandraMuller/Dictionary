@@ -33,13 +33,17 @@ code {
 	opacity: 1;
 	z-index: 3000;
 	overflow: hidden;
-	transition: height 500ms 0ms, opacity 500ms 500ms;
+	visibility: visible;
+	animation: fade 1s;
 }
 
 .box_hide {
-	transition: height 500ms 500ms, opacity 500ms 0ms;
-	opacity: 0;
 	height: 0px;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 600ms, visibility 600ms;
+	transition: opacity 600ms, visibility 600ms;
+	opacity: 0;
 }
 
 .helllo {
@@ -49,29 +53,13 @@ code {
 	animation: moveOver 5s alternate ease-in-out;
 }
 
-@-webkit-keyframes floatText {
-	/* from {
-		left: 00%;
+@keyframes fade {
+	0% {
+		opacity: 0;
 	}
 
-	to {
-		/* left: auto; */
-	/* left: 100%; */
-	/* }  */
-	0% {
-		left: 00%;
-	}
-	25% {
-		left: 25%;
-	}
-	50% {
-		left: 50%;
-	}
-	75% {
-		left: 75%;
-	}
 	100% {
-		left: 100%;
+		opacity: 1;
 	}
 }
 

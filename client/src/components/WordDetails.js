@@ -1,28 +1,77 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
 import { getWordQuery } from '../queries/queries';
+import { useLocation } from 'react-router-dom';
 
-const WordDetails = (props, { wordId }) => {
+import styled from 'styled-components';
+
+const Container = styled.div`
+	color: #fff;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding-top: 4rem;
+	text-align: center;
+	margin: 0 2rem;
+`;
+
+const BigHeader = styled.h1`
+	color: #fff;
+	font-size: 4rem;
+	font-family: inherit;
+	letter-spacing: 2px;
+	margin-bottom: 2rem;
+`;
+
+const NoneWordHeader = styled.h1`
+	color: #fff;
+	font-size: 4rem;
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 2px;
+	margin-top: 5rem;
+	height: 100vh;
+	text-align: center;
+`;
+
+const Span = styled.span`
+	text-transform: uppercase;
+	font-size: 1rem;
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 2px;
+	display: block;
+`;
+
+const Paragraph = styled.p`
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
+`;
+
+const WordDetails = () => {
+	const location = useLocation();
+	console.log(location.wordDetails);
 	const displayWordDetails = () => {
-		const word = props.data.word;
+		const word = location.wordDetails;
+		console.log(word);
 
 		if (word) {
 			console.log(word);
 			return (
-				<div>
-					<h2>{word.name}</h2>
-					<p>{word.description}</p>
-					<p>{word.developer.name}</p>
-					<h2>ALL WORDS</h2>
-					<ul>
-						{word.developer.word.map((item) => {
-							return <li key={item.id}>{item.name}</li>;
-						})}
-					</ul>
-				</div>
+				<Container>
+					<BigHeader>Read more about {word.name}</BigHeader>
+					<Paragraph>
+						<Span>Term:</Span> {word.name}
+					</Paragraph>
+					<Paragraph>
+						<Span>Description:</Span> {word.description}
+					</Paragraph>
+					<Paragraph>
+						<Span>Link:</Span> <a href={word.link}>{word.link}</a>
+					</Paragraph>
+					<Paragraph>
+						<Span>Developer:</Span> {word.developer.name}
+					</Paragraph>
+				</Container>
 			);
 		} else {
-			return <div>No word selected..</div>;
+			return <NoneWordHeader>No word selected..</NoneWordHeader>;
 		}
 	};
 

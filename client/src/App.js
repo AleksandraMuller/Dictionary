@@ -9,6 +9,8 @@ import SearchPage from './pages/SearchPage';
 import StartPage from './pages/StartPage';
 import ShowAllResultsPage from './pages/ShowAllResultsPage';
 import AddTermPage from './pages/AddTermPage';
+import DetailsPage from './pages/DetailsPage';
+import AddDeveloperPage from './pages/AddDeveloperPage';
 
 //apollo client setup
 
@@ -26,6 +28,8 @@ const App = () => {
 					<Route path='/search' exact component={SearchPage} />
 					<Route path='/allResults' exact component={ShowAllResultsPage} />
 					<Route path='/add' exact component={AddTermPage} />
+					<Route path='/details' exact component={DetailsPage} />
+					<Route path='/addDeveloper' exact component={AddDeveloperPage} />
 				</Switch>
 			</BrowserRouter>
 		</ApolloProvider>

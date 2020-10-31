@@ -5,7 +5,11 @@ export const getWordsQuery = gql`
 		words {
 			id
 			name
+			link
 			description
+			developer {
+				name
+			}
 		}
 	}
 `;
@@ -15,7 +19,11 @@ export const getFilteredWordsQuery = gql`
 		filterWords(filter: $filter) {
 			id
 			name
+			link
 			description
+			developer {
+				name
+			}
 		}
 	}
 `;
@@ -42,6 +50,15 @@ export const addWordMutation = gql`
 			link: $link
 			developerId: $developerId
 		) {
+			name
+			id
+		}
+	}
+`;
+
+export const addDeveloperMutation = gql`
+	mutation($name: String!, $link: String!) {
+		addDeveloper(name: $name, link: $link) {
 			name
 			id
 		}

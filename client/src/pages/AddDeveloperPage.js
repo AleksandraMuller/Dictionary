@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
-import WordList from '../components/WordList';
-import MenuPage from './MenuPage';
 import styled from 'styled-components';
-import mountainResized from '../assets/mountainresized.jpg';
 
-import { Navbar, Anchor } from '../styles/Reusables';
-
-const Container = styled.div`
-	background-image: url(${mountainResized});
-	background-size: cover;
-	opacity: 0.4;
-	width: 100%;
-	height: 100%;
-`;
+import { Anchor, Navbar } from '../styles/Reusables';
+import MenuPage from './MenuPage';
+import addDev from '../assets/developerresized.jpg';
+import AddDeveloper from '../components/AddDeveloper';
 
 const MainContainer = styled.div`
 	width: 100%;
@@ -20,16 +12,29 @@ const MainContainer = styled.div`
 	overflow: hidden;
 `;
 
-const ShowAllResultsPage = () => {
+const Container = styled.div`
+	background-image: url(${addDev});
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	filter: blur(6px);
+	-webkit-filter: blur(6px);
+`;
+
+const AddDeveloperPage = () => {
 	const [isOpen, setIsOpen] = useState(false);
+
 	const handleClick = () => {
 		setIsOpen(!isOpen);
 	};
+
 	return (
 		<MainContainer>
 			{!isOpen && (
 				<>
-					<WordList />
+					<AddDeveloper />
 					<Container></Container>
 				</>
 			)}
@@ -41,4 +46,4 @@ const ShowAllResultsPage = () => {
 	);
 };
 
-export default ShowAllResultsPage;
+export default AddDeveloperPage;

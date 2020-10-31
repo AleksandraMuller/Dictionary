@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { Container, Anchor, Navbar } from '../styles/Reusables';
 
 import Video from '../components/Video';
 import MenuPage from './MenuPage';
-
-const Container = styled.div`
-	width: 100%;
-	height: 100vh;
-	font-family: 'Open Sans Condensed', sans-serif;
-	overflow: hidden;
-	// opacity: 0.6;
-`;
 
 const LineContainer = styled.div`
 	width: 60%;
@@ -61,23 +54,10 @@ const Button = styled.button`
 	cursor: pointer;
 	&:hover {
 		background-color: #dc681b;
+		-moz-box-shadow: 5px 5px 5px rgba(220, 104, 27, 0.6);
+		-webkit-box-shadow: 5px 5px 5px rgba(220, 104, 27, 0.6);
+		box-shadow: 5px 5px 5px rgba(220, 104, 27, 0.6);
 	}
-`;
-
-const Anchor = styled.a`
-	cursor: pointer;
-`;
-
-const Navbar = styled.nav`
-	position: absolute;
-	top: 3rem;
-	right: 2rem;
-	writing-mode: vertical-lr;
-	text-orientation: mixed;
-	color: #fff;
-	font-size: 1.5rem;
-	font-weight: 600;
-	letter-spacing: 3px;
 `;
 
 const StartPage = () => {
@@ -107,7 +87,7 @@ const StartPage = () => {
 			<Anchor onClick={handleClick}>
 				<Navbar>{isOpen ? 'close' : 'menu'}</Navbar>
 			</Anchor>
-			<MenuPage isOpen={isOpen} />
+			<MenuPage isOpen={isOpen} setIsOpen={setIsOpen} />
 		</Container>
 	);
 };

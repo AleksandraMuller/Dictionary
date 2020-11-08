@@ -18,7 +18,17 @@ export const Navbar = styled.nav`
 	writing-mode: vertical-lr;
 	text-orientation: mixed;
 	color: #fff;
-	font-size: 1.5rem;
+	font-size: 0.9rem;
 	font-weight: 600;
 	letter-spacing: 3px;
+	z-index: 1000000;
+	@media (min-width: 450px) {
+		font-size: 1.1rem;
+	}
+	@media (min-width: 767px) {
+		font-size: 1.3rem;
+	}
+	@media (min-width: 1200px) {
+		font-size: 1.5rem;
+	}
 `;

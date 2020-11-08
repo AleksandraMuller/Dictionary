@@ -9,19 +9,31 @@ import { Navbar, Anchor } from '../styles/Reusables';
 const Container = styled.div`
 	background-image: url(${mountainResized});
 	background-size: cover;
+	// background-repeat: repeat-y;
 	opacity: 0.4;
-	width: 100%;
-	height: 100%;
+	min-width: 100%;
+	min-height: 300vh;
+	@media (min-width: 450px) {
+	}
+	@media (min-width: 767px) {
+		min-height: 200vh;
+	}
+	@media (min-width: 1200px) {
+		min-height: 100vh;
+	}
+	@media (min-width: 1800px) {
+	}
 `;
 
 const MainContainer = styled.div`
 	width: 100%;
-	height: 100vh;
-	overflow: hidden;
+	min-height: 100vh;
+	// overflow: hidden;
 `;
 
 const ShowAllResultsPage = () => {
 	const [isOpen, setIsOpen] = useState(false);
+
 	const handleClick = () => {
 		setIsOpen(!isOpen);
 	};

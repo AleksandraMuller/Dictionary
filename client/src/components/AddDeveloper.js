@@ -9,21 +9,51 @@ import InputAdd from './InputAdd';
 
 const Container = styled.div`
 	position: absolute;
-	left: 35%;
-	margin-left: -35px;
-	top: 15%;
-	margin-top: -15px;
+	// left: 35%;
+	// margin-left: -35px;
+	// top: 15%;
+	// margin-top: -15px;
+	left: 0;
+	right: 0;
+	top: 20%;
+	bottom: 0;
+	margin: auto;
 	background-color: transparent;
 	z-index: 5000;
 	color: #fff;
 	font-family: 'Open Sans Condensed', sans-serif;
+	@media (min-width: 450px) {
+	}
+	@media (min-width: 767px) {
+		left: 30%;
+		right: 30%;
+		// margin-left: -40px;
+		top: 15%;
+		// margin-top: -15px;
+	}
+	@media (min-width: 1200px) {
+	}
+	@media (min-width: 1800px) {
+	}
 `;
 
 const BigHeader = styled.h1`
-	font-size: 4rem;
+	font-size: 1.5rem;
 	font-family: 'Open Sans Condensed', sans-serif;
 	letter-spacing: 2px;
 	margin-bottom: 1rem;
+	text-align: center;
+	@media (min-width: 450px) {
+	}
+	@media (min-width: 767px) {
+		font-size: 2rem;
+	}
+	@media (min-width: 1200px) {
+		font-size: 4rem;
+	}
+	@media (min-width: 1800px) {
+		font-size: 5rem;
+	}
 `;
 
 const FlexContainer = styled.div`

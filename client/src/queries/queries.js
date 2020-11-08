@@ -8,6 +8,7 @@ export const getWordsQuery = gql`
 			link
 			description
 			developer {
+				id
 				name
 			}
 		}
@@ -22,6 +23,7 @@ export const getFilteredWordsQuery = gql`
 			link
 			description
 			developer {
+				id
 				name
 			}
 		}
@@ -61,6 +63,41 @@ export const addDeveloperMutation = gql`
 		addDeveloper(name: $name, link: $link) {
 			name
 			id
+		}
+	}
+`;
+
+export const deleteWordMutation = gql`
+	mutation($id: ID) {
+		deleteWord(id: $id) {
+			name
+			id
+		}
+	}
+`;
+
+export const editWordMutation = gql`
+	mutation(
+		$id: ID
+		$name: String!
+		$description: String!
+		$link: String!
+		$developerId: String!
+	) {
+		updateWord(
+			id: $id
+			name: $name
+			description: $description
+			link: $link
+			developerId: $developerId
+		) {
+			id
+			name
+			description
+			link
+			developer {
+				id
+			}
 		}
 	}
 `;

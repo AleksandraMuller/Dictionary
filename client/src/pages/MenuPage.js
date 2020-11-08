@@ -4,10 +4,10 @@ import { useHistory } from 'react-router-dom';
 
 const TextContainer = styled.div`
 	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 3rem;
+	font-size: 1rem;
 	position: absolute;
 	top: 7rem;
-	left: 6rem;
+	left: 3rem;
 	white-space: nowrap;
 	color: #333;
 	cursor: pointer;
@@ -16,6 +16,18 @@ const TextContainer = styled.div`
 		from {
 			transform: translate3d(1200px, 0, 0);
 		}
+	}
+	@media (min-width: 450px) {
+		font-size: 1.5rem;
+		left: 6rem;
+	}
+	@media (min-width: 767px) {
+		font-size: 2rem;
+		left: 6rem;
+	}
+	@media (min-width: 1200px) {
+		font-size: 3rem;
+		left: 6rem;
 	}
 `;
 
@@ -27,15 +39,6 @@ const Anchor = styled.a`
 
 const MenuPage = ({ isOpen, setIsOpen }) => {
 	let history = useHistory();
-
-	//MORE REUSABLE!!
-	// const handleClickedMenu = () => {
-	// 	if (history.location.pathname === '/') {
-	// 		setIsOpen(!isOpen);
-	// 	} else {
-	// 		history.push('/');
-	// 	}
-	// };
 
 	return (
 		<div className={isOpen ? 'box' : 'box_hide'}>

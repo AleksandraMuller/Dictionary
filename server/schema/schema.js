@@ -151,6 +151,43 @@ const Mutation = new GraphQLObjectType({
 				return word.save();
 			},
 		},
+		updateWord: {
+			type: WordType,
+			args: {
+				id: { type: GraphQLID },
+				name: {
+					type: new GraphQLNonNull(GraphQLString),
+				},
+				description: {
+					type: new GraphQLNonNull(GraphQLString),
+				},
+				link: {
+					type: new GraphQLNonNull(GraphQLString),
+				},
+				developerId: {
+					type: GraphQLString,
+				},
+			},
+			resolve(parent, args) {
+				return Word.findOneAndUpdate(
+					{ _id: args.id },
+					{
+						name: args.name,
+						description: args.description,
+						link: args.link,
+						developerId: args.developerId,
+					},
+					{ new: true }
+				);
+			},
+		},
+		deleteWord: {
+			type: WordType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Word.findByIdAndDelete(args.id);
+			},
+		},
 	},
 });
 

@@ -42,7 +42,6 @@ const FlexContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	// padding: 0 3rem;
 `;
 
 const Button = styled.button`

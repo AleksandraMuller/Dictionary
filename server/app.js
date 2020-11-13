@@ -8,6 +8,7 @@ import cors from 'cors';
 require('dotenv').config();
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 //allow cross-origin requests
 app.use(cors());
@@ -29,6 +30,6 @@ app.use(
 	})
 );
 
-app.listen(4000, () => {
-	console.log('now listening on port 4000');
+app.listen(port, () => {
+	console.log(`Server running on http://localhost:${port}`);
 });

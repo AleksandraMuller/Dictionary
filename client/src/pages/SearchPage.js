@@ -103,7 +103,6 @@ const StyledSettingsLogo = styled(SettingsLogo)`
 	@media (min-width: 450px) {
 	}
 	@media (min-width: 767px) {
-		width: 30px;
 	}
 	@media (min-width: 1200px) {
 		width: 40px;

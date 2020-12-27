@@ -15,7 +15,7 @@ import AddDeveloperPage from './pages/AddDeveloperPage';
 //apollo client setup
 
 const client = new ApolloClient({
-	uri: 'http://localhost:4000/graphql',
+	uri: 'https://dictionaryforweb.herokuapp.com/graphql',
 });
 
 const App = () => {
